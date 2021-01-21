@@ -2,6 +2,9 @@ package game;
 
 import java.awt.*;
 
+/**
+ * Game tile class where when instanced and given parameters renders a game tile with a dot based on those parameters.
+ */
 public class GameTileDot {
     private double row;
     private double col;

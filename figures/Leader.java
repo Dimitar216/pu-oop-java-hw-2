@@ -22,6 +22,7 @@ public class Leader extends Figures {
         this.widthOfTile  = widthOfTile;
         this.heightOfTile = heightOfTile;
         this.color        = color;
+        this.idOfFigure = 0;
     }
 
     /**
@@ -35,5 +36,19 @@ public class Leader extends Figures {
         g.setColor(this.color);
         g.fillRect(tileX+22,tileY+20,this.widthOfTile-40, this.heightOfTile-40);
 
+    }
+
+    /**
+     * Method which checks if the move of the figure is valid.
+     * @param moveRow row it moves to.
+     * @param moveCol col it moves to.
+     * @return true if the move is valid and false if not.
+     */
+    @Override
+    public boolean isMoveValid(int moveRow, int moveCol) {
+        int rowCoefficient = (int) Math.abs(moveRow-this.row);
+        int colCoefficient = (int) Math.abs(moveCol - this.col);
+
+        return rowCoefficient == 0 && colCoefficient >= 1 || rowCoefficient >= 1 && colCoefficient == 0;
     }
 }

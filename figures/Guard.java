@@ -26,6 +26,7 @@ public class Guard extends Figures {
         this.heightOfTile = heightOfTile;
         this.primaryColor        = primaryColor;
         this.outlineColor       = outlineColor;
+        this.idOfFigure = 1;
     }
 
     /**
@@ -41,5 +42,19 @@ public class Guard extends Figures {
 
         g.setColor(this.primaryColor);
         g.fillOval(tileX+30,tileY+31,this.widthOfTile-60, this.heightOfTile-60);
+    }
+
+    /**
+     * Method which checks if the move of the figure is valid.
+     * @param moveRow row it moves to.
+     * @param moveCol col it moves to.
+     * @return true if the move is valid and false if not.
+     */
+    @Override
+    public boolean isMoveValid(int moveRow, int moveCol) {
+        int rowCoefficient = (int) Math.abs(moveRow-this.row);
+        int colCoefficient = (int) Math.abs(moveCol - this.col);
+
+        return rowCoefficient == 0 && colCoefficient == 1 || rowCoefficient == 1 && colCoefficient == 0;
     }
 }

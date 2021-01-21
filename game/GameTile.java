@@ -2,6 +2,9 @@ package game;
 
 import java.awt.*;
 
+/**
+ * Game tile class where when instanced and given parameters renders a game tile based on those parameters.
+ */
 public class GameTile {
 
     private double row;
